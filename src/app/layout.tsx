@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Water Habit - 养成健康饮水习惯",
-  description: "帮助您追踪每日饮水，养成健康饮水习惯",
+  title: "Water Habit - Stay Hydrated, Stay Healthy",
+  description: "Smart daily water intake tracking. Set goals, receive reminders, and build healthy hydration habits.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

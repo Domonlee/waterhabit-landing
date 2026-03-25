@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Droplets, Download } from "lucide-react";
+import { useTranslation, translations } from "./LanguageToggle";
 
 export default function Hero() {
+  const { language } = useTranslation();
+  const t = translations.hero;
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
       <div className="absolute inset-0 overflow-hidden">
@@ -21,16 +25,16 @@ export default function Hero() {
           >
             <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Droplets className="w-4 h-4" />
-              养成健康饮水习惯
+              {language === "en" ? t.badge.en : t.badge.zh}
             </div>
 
             <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              每天喝水
-              <span className="text-primary-500"> so easy</span>
+              {language === "en" ? t.titleEn : t.titleZh}
+              <span className="text-primary-500"> {t.titleHighlight.en}</span>
             </h1>
 
             <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0">
-              智能追踪每日饮水量，设定目标，接收提醒，让健康饮水成为你的日常习惯。
+              {language === "en" ? t.subtitle.en : t.subtitle.zh}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -39,14 +43,14 @@ export default function Hero() {
                 className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-medium hover:bg-slate-800 transition-colors"
               >
                 <Download className="w-5 h-5" />
-                App Store
+                {t.appStore}
               </a>
               <a
                 href="#"
                 className="inline-flex items-center justify-center gap-2 bg-slate-100 text-slate-900 px-6 py-3 rounded-xl font-medium hover:bg-slate-200 transition-colors"
               >
                 <Download className="w-5 h-5" />
-                Google Play
+                {t.googlePlay}
               </a>
             </div>
           </motion.div>
@@ -66,9 +70,13 @@ export default function Hero() {
                       <div className="w-16 h-16 bg-primary-100 rounded-full mx-auto mb-4 flex items-center justify-center">
                         <Droplets className="w-8 h-8 text-primary-500" />
                       </div>
-                      <h3 className="text-lg font-semibold text-slate-900">今日饮水</h3>
+                      <h3 className="text-lg font-semibold text-slate-900">
+                        {language === "en" ? "Today's Water" : "今日饮水"}
+                      </h3>
                       <p className="text-4xl font-bold text-primary-500 mt-2">1200ml</p>
-                      <p className="text-sm text-slate-500">目标: 2000ml</p>
+                      <p className="text-sm text-slate-500">
+                        {language === "en" ? "Goal: 2000ml" : "目标: 2000ml"}
+                      </p>
                     </div>
                     <div className="flex-1 flex items-end justify-center pb-4">
                       <div className="w-12 bg-primary-100 rounded-full relative overflow-hidden" style={{ height: '200px' }}>

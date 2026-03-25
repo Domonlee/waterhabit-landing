@@ -1,6 +1,12 @@
+"use client";
+
 import { Droplets, Mail } from "lucide-react";
+import { useTranslation, translations } from "./LanguageToggle";
 
 export default function Footer() {
+  const { language } = useTranslation();
+  const t = translations.footer;
+
   return (
     <footer className="bg-slate-900 text-slate-400 py-12">
       <div className="container mx-auto px-4">
@@ -11,37 +17,41 @@ export default function Footer() {
               <span className="text-lg font-semibold">Water Habit</span>
             </div>
             <p className="text-sm leading-relaxed max-w-sm">
-              帮助您养成健康饮水习惯，让每一天都充满活力。
+              {language === "en" ? t.description.en : t.description.zh}
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">链接</h4>
+            <h4 className="text-white font-semibold mb-4">
+              {language === "en" ? "Links" : "链接"}
+            </h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  隐私政策
+                  {language === "en" ? t.links.en.privacy : t.links.zh.privacy}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  服务条款
+                  {language === "en" ? t.links.en.terms : t.links.zh.terms}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  联系我们
+                  {language === "en" ? t.links.en.contact : t.links.zh.contact}
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">联系</h4>
+            <h4 className="text-white font-semibold mb-4">
+              {language === "en" ? "Contact" : "联系"}
+            </h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                support@waterhabit.app
+                {t.contact}
               </li>
             </ul>
           </div>

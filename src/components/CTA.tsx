@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Download, Droplets } from "lucide-react";
+import { useTranslation, translations } from "./LanguageToggle";
 
 export default function CTA() {
+  const { language } = useTranslation();
+  const t = translations.cta;
+
   return (
     <section className="py-20 bg-gradient-to-br from-primary-500 via-primary-600 to-cyan-500 relative overflow-hidden">
       <div className="absolute inset-0">
@@ -24,11 +28,11 @@ export default function CTA() {
           </div>
 
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-            立即开始健康饮水之旅
+            {language === "en" ? t.title.en : t.title.zh}
           </h2>
 
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            下载 Water Habit，养成健康饮水习惯，让每一天都充满活力
+            {language === "en" ? t.subtitle.en : t.subtitle.zh}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -37,14 +41,14 @@ export default function CTA() {
               className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold hover:bg-primary-50 transition-colors"
             >
               <Download className="w-5 h-5" />
-              App Store
+              {t.appStore}
             </a>
             <a
               href="#"
               className="inline-flex items-center justify-center gap-2 bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-800 transition-colors"
             >
               <Download className="w-5 h-5" />
-              Google Play
+              {t.googlePlay}
             </a>
           </div>
         </motion.div>
