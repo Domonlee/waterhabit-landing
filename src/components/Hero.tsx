@@ -52,6 +52,12 @@ export default function Hero() {
                 <Download className="w-5 h-5" />
                 {t.googlePlay}
               </a>
+              <a
+                href="/tracker"
+                className="inline-flex items-center justify-center gap-2 border border-primary-200 bg-primary-50 text-primary-700 px-6 py-3 rounded-xl font-medium hover:bg-primary-100 transition-colors"
+              >
+                {language === "en" ? "Web Tracker Demo" : "网页版记录入口"}
+              </a>
             </div>
           </motion.div>
 
